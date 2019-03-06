@@ -4,10 +4,8 @@
 class Calc():
     funckeys = ['F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12']
     shortcuts = ['LCTL', 'LFSH', 'RTSH', 'WIN', 'ALT']
-    alphabetLowerRU = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
-    alphabetUpperRU = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-    alphabetRU = alphabetLowerRU + alphabetUpperRU
-    layoutsRU = [2, 3]
+    alphabetRU = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+    freqCmbsRU = [['ж', 'и'], ['ш', 'и'], ['ч', 'а'], ['щ', 'а'], ['ч', 'у'], ['щ', 'у'], ['ч', 'к'], ['ч', 'н']]
     # жи ши ча ща чу щу чк чн
 
     def __init__(self):
@@ -127,38 +125,44 @@ class Calc():
 
             j += 1
 
-    def formRULetterCmbs(self):
-        i = 0
-        while i < self.len:
-            self.nodes[i] = False
-            i += 1
 
+    def formRULetterCmbs3(self):
         self.listRUCmbs = []
-        lvl = 0
-        i = 0
-        while i < self.len:
-            if not (self.keyname[i] in self.shortcuts):
-                if (not lvl) and (self.layout[i] in self.layoutsRU):
-                    self.nodes[i] = True
-            else:
-                if self.state[i] == 0:
-                    lvl += 1
-                if self.state[i] == 2:
-                    lvl -= 1
-            i += 1
-
         i = 0
         while i < self.len - 1:
-            if self.nodes[i] and self.state[i] == 0:
+            if (self.state[i] == 0) and (self.keyname[i] in self.alphabetRU):
                 j = i + 1
                 while j < self.len:
                     if self.state[j] == 0:
-                       if self.nodes[j]:
+                        if (self.keyname[j] in self.alphabetRU):
                            cmb = []
                            cmb.append(self.keyname[i])
                            cmb.append(self.keyname[j])
                            self.listRUCmbs.append((cmb.copy()))
-                       break
+                        break
+
+                    j += 1
+            i += 1
+
+
+    def isCmbRUFreq(self, cmbRU):
+        return self.freqCmbsRU.count(cmbRU)
+
+    def formRULetterCmbs(self):
+        self.listRUCmbs = []
+        i = 0
+        while i < self.len - 1:
+            if (self.state[i] == 0) and (self.keyname[i] in self.alphabetRU):
+                j = i + 1
+                while j < self.len:
+                    if self.state[j] == 0:
+                        if (self.keyname[j] in self.alphabetRU):
+                            cmb = []
+                            cmb.append(self.keyname[i])
+                            cmb.append(self.keyname[j])
+                            if self.isCmbRUFreq(cmb):
+                                self.listRUCmbs.append((cmb.copy()))
+                        break
 
                     j += 1
             i += 1

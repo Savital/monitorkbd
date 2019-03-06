@@ -105,7 +105,7 @@ class ProcParser():
             if layout == 3:
                 ch = KeyboardLayouts.upperRU[index]
             list[6] = ch
-            print(list)
+
             results.append(list)
         f.close()
         return results

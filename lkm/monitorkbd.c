@@ -59,7 +59,7 @@ static int result = 0;
 static int ret = 0;
 static int i = 0;
 
-char* lowerKbdus[128] =
+char* lowerKbdus[128] = // TODO
 {
     "UK", "Escape", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
     "Backspace", "Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "Enter", "Control",
@@ -74,7 +74,7 @@ char* lowerKbdus[128] =
     "<PageDown>", "<Insert>", "<Delete>"	/* All other keys are undefined */
 };
 
-char* upperKbdus[128] =
+char* upperKbdus[128] = // TODO
 {
     "UK", "Escape", "!", "@", "#", "$", "%", "^", "&", "&", "(", ")", "_", "+",
     "Backspace", "Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "{", "}", "Enter", "Control",
@@ -87,7 +87,7 @@ char* upperKbdus[128] =
     0, 0, "WinKey"	/* All other keys are undefined */
 };
 
-char* lowerKbdusRU[128] =
+char* lowerKbdusRU[128] = // TODO
 {
     "UK", "Escape", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
     "Backspace", "Tab", "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ", "Enter", "Control",
@@ -100,7 +100,7 @@ char* lowerKbdusRU[128] =
     0, 0, "WinKey"	/* All other keys are undefined */
 };
 
-char* upperKbdusRU[128] =
+char* upperKbdusRU[128] = // TODO
 {
     "UK", "Escape", "!", "@", "#", "$", "%", "^", "&", "&", "(", ")", "_", "+",
     "Backspace", "Tab", "Й", "Ц", "У", "К", "Е", "Н", "Г", "Ш", "Щ", "З", "Х", "Ъ", "Enter", "Control",
