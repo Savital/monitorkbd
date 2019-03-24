@@ -147,6 +147,8 @@ class MainForm(BaseForm):
             self.textLogging.setText(txtLogging)
         else:
             self.textLogging.setText(self.txtEmptyLog)
+
+
         txtShortcuts = ""
         if len(list[0][5]):
             for item in list[0][5]:

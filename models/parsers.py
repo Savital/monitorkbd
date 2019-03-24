@@ -105,7 +105,8 @@ class ProcParser():
             if layout == 3:
                 ch = KeyboardLayouts.upperRU[index]
             list[6] = ch
-
+            if (int(list[5]) > 5000):
+                list[5] = 5000
             results.append(list)
         f.close()
         return results
